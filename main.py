@@ -7,7 +7,7 @@ from sqlalchemy import create_engine
 
 # CSV import 
 # fill in empty quote with file location
-df = pd.read_csv('tweets.csv')
+df = pd.read_csv('')
 
 cnx = mysql.connector.connect(
         host = config.host,
@@ -16,7 +16,7 @@ cnx = mysql.connector.connect(
 print(cnx)
 cursor = cnx.cursor()
 #insert Database Name
-db_name = 'cvoid19'
+db_name = ''
 
 #creates db
 def create_database(cursor, database):
@@ -52,4 +52,4 @@ engine = create_engine("mysql+mysqlconnector://{user}:{pw}@{host}/{db}"
 
 # Insert whole DataFrame into MySQL
 # fill in empty quotes with table name 
-df.to_sql('cvoid19', con = engine, if_exists = 'append')
+df.to_sql('', con = engine, if_exists = 'append')
